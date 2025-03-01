@@ -24,18 +24,18 @@
     <script>
         let moviesData = []
         fetch("./data.json")
-            .then(reponse=>reponse.json())
-            .then(result=>{
+            .then(reponse => reponse.json())
+            .then(result => {
                 moviesData.push(...result)
             })
-            .catch(error=>console.log(error))
-        if(moviesData) console.log(moviesData)
-       
+            .catch(error => console.log(error))
+        if (moviesData) console.log(moviesData)
+
 
         var map = L.map('map').setView([37.773972, -122.431297], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.osrg/copyright"></a> '
+            attribution: '&copy; <a href="https://www.openstreetmap.osrg/copyright" title="OpenStreetMap Copyright">OpenStreetMap</a> '
         }).addTo(map);
 
         L.marker([37.773972, -122.431297])
