@@ -41,6 +41,27 @@
         L.marker([37.773972, -122.431297])
             .addTo(map)
             .openPopup();
+
+            function addMarker(lat, lng) {
+    L.marker([lat, lng]).addTo(map);
+}
+
+
+
+document.getElementById('search').addEventListener('input', function()
+{
+    let id = "myElement";
+    console.log(id);
+    const query = this.value.toLowerCase();
+    const results = places.filter(place => place.name.toLowerCase().includes(query));
+
+    if (results.length > 0) {
+        const firstResult = results[0];
+        map.setView([firstResult.lat, firstResult.lng], 13);
+        addMarker(firstResult.lat, firstResult.lng);
+    }
+}
+);
     </script>
 
 
